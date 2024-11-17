@@ -4,10 +4,6 @@ import type { FallbackFunction } from "unleash-client/lib/helpers"
 import { ref, watch, type ComputedRef, type Ref } from "vue";
 
 export function useUnleash() {
-
-  console.log(useRuntimeConfig().public);
-
-
   const customApiPath = useRuntimeConfig().public.customApiPath
 
   const isEnabled = async (flag: string, context?: Context | Ref<Context>, fallbackFn?: FallbackFunction) => {
