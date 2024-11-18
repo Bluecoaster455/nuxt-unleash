@@ -1,6 +1,6 @@
 {
   "name": "@bluecoaster/nuxt-unleash",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "This module allows the use of Unleash feature flagging system into your Nuxt 3 app.",
   "repository": "https://github.com/Bluecoaster455/nuxt-unleash",
   "license": "MIT",
