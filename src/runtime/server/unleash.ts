@@ -1,10 +1,9 @@
-import { ModuleOptions } from "~/src/module";
-import { initialize, Unleash } from 'unleash-client'
+import { initialize, type Unleash } from 'unleash-client'
+import type { ModuleOptions } from '~/src/module'
 
 let unleashInstance: Unleash | undefined
 
 export default async function (options?: ModuleOptions) {
-
   if (unleashInstance) {
     return unleashInstance
   }
@@ -13,7 +12,7 @@ export default async function (options?: ModuleOptions) {
     throw new Error('Unleash must be initialized with options first!')
   }
 
-  var instance = unleashInstance = initialize(options)
+  const instance = unleashInstance = initialize(options)
 
   instance.on('error', console.error)
   instance.on('warn', console.warn)

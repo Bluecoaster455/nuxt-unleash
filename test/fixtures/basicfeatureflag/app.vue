@@ -1,5 +1,7 @@
 <template>
-  <div v-if="featureIsOn">Feature is on</div>
+  <div v-if="featureIsOn">
+    Feature is on
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,13 +1,12 @@
-import { useRuntimeConfig } from "#app";
-import type { Context } from "unleash-client"
-import type { FallbackFunction } from "unleash-client/lib/helpers"
-import { ref, watch, type ComputedRef, type Ref } from "vue";
+import type { Context } from 'unleash-client'
+import type { FallbackFunction } from 'unleash-client/lib/helpers'
+import { ref, watch, type ComputedRef, type Ref } from 'vue'
+import { useRuntimeConfig } from '#app'
 
 export function useUnleash() {
   const customApiPath = useRuntimeConfig().public.customApiPath
 
   const isEnabled = async (flag: string, context?: Context | Ref<Context>, fallbackFn?: FallbackFunction) => {
-
     const ctx = context?.value || context
 
     const result = await $fetch<boolean>(`/api/${customApiPath}/features`, {
@@ -16,7 +15,7 @@ export function useUnleash() {
       headers: {
         'Content-Type': 'application/json',
       },
-    });
+    })
 
     return result
   }
@@ -36,7 +35,7 @@ export function useUnleash() {
         enabled: enabled,
         refresh: async () => {
           enabled.value = await isEnabled(flag, ctx, fallbackFn)
-        }
+        },
       }
     },
   }
